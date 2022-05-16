@@ -2,6 +2,12 @@
     <a href="{% url 'home_page_url' %}">Home</a>
     <a href="{% url 'about_page_url' %}">About</a>
     <a href="{% url 'post_page_url' %}">Posts</a>
+    {% if user.is_authenticated %}
+      {{ user.username }}
+      <p><a href="{% url 'logout' %}">Log Out</a></p>
+    {% else %}
+      <a href="{% url 'login' %}">Log In</a>
+    {% endif %}
 </header>
 
 {% block content%} {% endblock content%}
