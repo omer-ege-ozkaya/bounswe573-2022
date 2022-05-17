@@ -2,12 +2,33 @@
 
 {% block content %}
 <h1>Homepage</h1>
+<body style="background-color: light-grey;">
 {% if user.is_authenticated %}
-  Hi {{ user.username }}!
-  <p><a href="{% url 'logout' %}">Log Out</a></p>
+Hi {{ user.username }}!
+Here are your spaces:
+<div width="100%">
+    <table width="100%">
+        <tr>
+            <td width="50%">
+                <div class="space">Space 1</div>
+            </td>
+            <td>
+                <div class="space">Space 2</div>
+            </td>
+        </tr>
+        <td>
+            <div class="space">Space 3</div>
+        </td>
+        <td>
+            <div class="space">Space 4</div>
+        </td>
+        </tr>
+    </table>
+</div>
 {% else %}
-  <p>You are not logged in</p>
-  <a href="{% url 'login' %}">Log In</a>
-  or <a href="{% url 'signup_page_url' %}">Sign Up</a>
+<p>You are not logged in</p>
+<a href="{% url 'login' %}">Log In</a>
+or <a href="{% url 'signup_page_url' %}">Sign Up</a>
 {% endif %}
+</body>
 {% endblock content %}

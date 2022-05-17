@@ -1,3 +1,6 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'global.css' %}">
+
 <header>
     <a href="{% url 'home_page_url' %}">Home</a>
     <a href="{% url 'about_page_url' %}">About</a>
@@ -10,5 +13,25 @@
       or <a href="{% url 'signup_page_url' %}">Sign Up</a>
     {% endif %}
 </header>
+
+<nav id='menu'>
+  <!--<input type='checkbox' id='responsive-menu' onclick='updatemenu()'><label></label>-->
+  <ul>
+    <li><a href="{% url 'home_page_url' %}">Home</a></li>
+    <li><a href="{% url 'post_page_url' %}">Posts</a></li>
+    <li><a href="{% url 'about_page_url' %}">About</a></li>
+    {% if user.is_authenticated %}
+    <li><a class="dropdown-arrow" href="{% url 'profile_page_url' %}">{{ user.username }}</a>
+      <ul class="sub-menus">
+        <li><a href="{% url 'profile_page_url' %}">Profile</a></li>
+        <li><a href="{% url 'logout' %}">Log Out</a></li>
+      </ul>
+    </li>
+    {% else %}
+    <li><a href="{% url 'login' %}">Log In</a></li>
+    <li><a href="{% url 'signup_page_url' %}">Sign Up</a></li>
+    {% endif %}
+  </ul>
+</nav>
 
 {% block content%} {% endblock content%}
