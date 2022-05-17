@@ -1,20 +1,16 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'global.css' %}">
+<link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
 
 <header>
-    <a href="{% url 'home_page_url' %}">Home</a>
-    <a href="{% url 'about_page_url' %}">About</a>
-    <a href="{% url 'post_page_url' %}">Posts</a>
-    {% if user.is_authenticated %}
-      {{ user.username }}
-      <p><a href="{% url 'logout' %}">Log Out</a></p>
-    {% else %}
-      <a href="{% url 'login' %}">Log In</a>
-      or <a href="{% url 'signup_page_url' %}">Sign Up</a>
-    {% endif %}
+    <div class="header">
+      <div class="header" id="main">Colearn</div>
+      <div class="header" id="subtext">Learn with peers like you!</div>
+    </div>
+
 </header>
 
-<nav id='menu'>
+<nav id="menu">
   <!--<input type='checkbox' id='responsive-menu' onclick='updatemenu()'><label></label>-->
   <ul>
     <li><a href="{% url 'home_page_url' %}">Home</a></li>
