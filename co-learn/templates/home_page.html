@@ -6,24 +6,21 @@
 {% if user.is_authenticated %}
 Hi {{ user.username }}!
 Here are your spaces:
-<div width="100%">
-    <table width="100%">
-        <tr>
-            <td width="50%">
-                <div class="space">Space 1</div>
-            </td>
-            <td>
-                <div class="space">Space 2</div>
-            </td>
-        </tr>
-        <td>
-            <div class="space">Space 3</div>
-        </td>
-        <td>
-            <div class="space">Space 4</div>
-        </td>
-        </tr>
-    </table>
+<div class="container">
+    <div class="row">
+        <!-- Blog Entries Column -->
+        <div class="col-md-8 mt-3 left">
+            {% for post in post_list %}
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h2 class="card-title">{{ post.title }}</h2>
+                    <p class="card-text text-muted h6">{{ post.author }} | {{ post.created_on}} </p>
+                    <p class="card-text">{{post.content|slice:":200" }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
 </div>
 {% else %}
 <p>You are not logged in</p>

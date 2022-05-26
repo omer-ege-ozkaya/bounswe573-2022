@@ -18,7 +18,11 @@ class Post(models.Model):
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     modified_on = models.DateTimeField(auto_now=True)
+    learning_space = models
 
     def __str__(self):
         return self.title[:50]
 
+
+class LearningSpace(models.Model):
+    title = models.CharField(max_length=200)
