@@ -6,5 +6,6 @@
         {% csrf_token %}
         {{ form.as_ul }}
         <input type="submit", value="Submit">
+        <input type="button" onclick="location.href = '/learning-space/{{ learning_space_id }}'" value="Cancel">
     </form>
 </div>

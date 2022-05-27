@@ -52,7 +52,7 @@ def create_article_view(req, learning_space_id):
     template = loader.get_template("app_article/article_create.html")
     context = {
         "form": form,
-        "learning_space_id": learning_space_id
+        "learning_space_id": learning_space_id,
     }
     return HttpResponse(template.render(context, req))
 
@@ -70,7 +70,8 @@ def update_article_view(req, article_id):
 
     template = loader.get_template("app_article/article_update.html")
     context = {
-        "form": form
+        "form": form,
+        "article_id": article_model.id
     }
     return HttpResponse(template.render(context, req))
 
