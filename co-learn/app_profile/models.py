@@ -7,6 +7,6 @@ class Profile(models.Model):
     profile_picture = models.ImageField(blank=True)
 
     def __str__(self):
-        return self.user.name
+        return self.user.__str__()
 
     
