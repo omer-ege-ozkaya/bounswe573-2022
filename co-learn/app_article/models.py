@@ -7,8 +7,9 @@ class Article(models.Model):
     title = models.CharField(max_length=256)
     body = models.TextField()
     author = models.ForeignKey(Profile, on_delete=models.CASCADE)
-    like_count = models.IntegerField()
+    like_count = models.IntegerField(default=0)
     learning_space = models.ForeignKey(LearningSpace, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.title
+    
