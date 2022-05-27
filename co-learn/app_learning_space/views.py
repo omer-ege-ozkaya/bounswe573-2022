@@ -32,9 +32,9 @@ def create_learning_space_view(req):
         form = LearningSpaceForm(req.POST)
         if form.is_valid():
             profile = Profile.objects.filter(user__id=req.user.id)
-            learning_space_model = LearningSpace(**form.cleaned_data)
-            learning_space_model.save()
+            learning_space_model = form.save()
             learning_space_model.colearners.set(profile)
+            learning_space_model.save()
             return HttpResponseRedirect(f"/learning-space/{learning_space_model.id}")
     else:
         form = LearningSpaceForm()
