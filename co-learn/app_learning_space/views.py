@@ -62,3 +62,9 @@ def update_learning_space_view(req, learning_space_id):
         "form": form
     }
     return HttpResponse(template.render(context, req))
+
+
+def delete_learning_space_view(req, learning_space_id):
+    learning_space = LearningSpace.objects.get(id=learning_space_id)
+    learning_space.delete()
+    return HttpResponseRedirect("/")
