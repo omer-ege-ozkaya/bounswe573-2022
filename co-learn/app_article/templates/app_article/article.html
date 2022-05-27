@@ -5,7 +5,20 @@
     <h2>Posts of {{ article.title }}</h2>
     <table>
         <tr>
-
+            <td>
+                <table>
+                    <tr><td>{{ article.like_count }}</td></tr>
+                    <tr><td>{{ article.author.profile_picture }}</td></tr>
+                    <tr><td>{{ article.author.user.username }}</td></tr>
+                    <tr><td>{{ article.created_at }}</td></tr>
+                    {% if article.created_at != article.modified_at %}
+                    <tr><td>Modified at: <br>{{ article.modified_at }}</td></tr>
+                    {% endif %}
+                </table>
+            </td>
+            <td>
+                {{ article.body }}
+            </td>
         </tr>
         {% for post in posts %}
         <tr>
