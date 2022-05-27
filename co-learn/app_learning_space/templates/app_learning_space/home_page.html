@@ -1,1 +1,13 @@
-<h1>Learning Space Home Page</h1>
+<div>
+    <h1>Learning Space Home Page</h1>
+</div>
+<div>
+    <table>
+        {% for learning_space in learning_spaces %}
+        <tr>
+            <td>{{ learning_space.thumbnail }}</td>
+            <td>{{ learning_space.name }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>

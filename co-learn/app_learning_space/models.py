@@ -1,6 +1,7 @@
 from django.db import models
 from app_profile.models import Profile
 
+
 class LearningSpace(models.Model):
     name = models.CharField(max_length=64)
     colearners = models.ManyToManyField(Profile, blank=True)
