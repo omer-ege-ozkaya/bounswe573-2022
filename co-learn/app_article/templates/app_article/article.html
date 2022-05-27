@@ -51,6 +51,10 @@
             <td>
                 {{ post.body }}
             </td>
+            <td>
+                <a href="/post/update/{{ post.id }}">Edit</a><br>
+                <a href="/post/delete/{{ post.id }}">Delete</a>
+            </td>
         </tr>
         {% endfor %}
     </table>
