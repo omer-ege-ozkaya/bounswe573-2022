@@ -9,8 +9,14 @@
     <div><a href="/article/update/{{ article.id }}">Edit Article!</a></div>
     <div><a href="/article/delete/{{ article.id }}">Delete Article!</a></div>
     <div>
-        <button id="showHidePostForm" onclick="showHidePost()">Write Post!</button>
-        <div id="postForm" style="display: none;">TestArea</div>
+        <button id="showHidePostFormButton" onclick="showHidePost()">Write Post!</button>
+        <div id="postForm" style="display: none;">
+            <form method="post">
+                {% csrf_token %}
+                {{ post_form.as_p }}
+                <input type="submit" value="Submit">
+            </form>
+        </div>
     </div>
     <table>
         <tr>
