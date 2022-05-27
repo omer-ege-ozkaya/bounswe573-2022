@@ -1,0 +1,12 @@
+<div>
+    <h1>Update Article</h1>
+</div>
+<div>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_ul }}
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset Form">
+        <input type="button" onclick="history.back()" value="Cancel">
+    </form>
+</div>
