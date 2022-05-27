@@ -10,10 +10,22 @@ from app_posts.forms import PostForm
 
 
 def article_view(req, article_id):
-    template = loader.get_template("app_article/article.html")
+    if req.method == "POST":
+        post_form = PostForm(req.POST)
+        if post_form.is_valid():
+            profile = Profile.objects.filter(user__id=req.user.id)[0]
+            post_model = Post(
+                author=profile,
+                article=Article.objects.get(id=article_id),
+                **post_form.cleaned_data
+            )
+            post_model.save()
+            post_form = PostForm()
+    else:
+        post_form = PostForm()
     article = Article.objects.get(id=article_id)
     posts = Post.objects.filter(article__id=article_id).order_by("created_at")
-    post_form = PostForm()
+    template = loader.get_template("app_article/article.html")
     context = {
         "article": article,
         "posts": posts,
