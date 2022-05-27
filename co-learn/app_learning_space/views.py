@@ -47,17 +47,14 @@ def create_learning_space_view(req):
 
 
 def update_learning_space_view(req, learning_space_id):
+    learning_space_model = LearningSpace.objects.get(id=learning_space_id)
     if req.method == "POST":
-        form = LearningSpaceForm(req.POST)
+        form = LearningSpaceForm(req.POST, instance=learning_space_model)
         if form.is_valid():
-            profile = Profile.objects.filter(user__id=req.user.id)
-            learning_space_model = LearningSpace(**form.cleaned_data)
-            learning_space_model.save()
-            learning_space_model.colearners.set(profile)
+            form.save()
             return HttpResponseRedirect(f"/learning-space/{learning_space_model.id}")
     else:
-        learning_space = LearningSpace.objects.get(id=learning_space_id)
-        learning_space_as_dict = model_to_dict(learning_space)
+        learning_space_as_dict = model_to_dict(learning_space_model)
         form = LearningSpaceForm(initial=learning_space_as_dict)
 
     template = loader.get_template("app_learning_space/learning_space_update.html")
