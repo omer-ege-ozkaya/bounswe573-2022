@@ -3,7 +3,7 @@ from app_profile.models import Profile
 
 class LearningSpace(models.Model):
     name = models.CharField(max_length=64)
-    colearners = models.ManyToManyField(Profile)
+    colearners = models.ManyToManyField(Profile, blank=True)
     description = models.TextField()
     thumbnail = models.ImageField(blank=True)
 
