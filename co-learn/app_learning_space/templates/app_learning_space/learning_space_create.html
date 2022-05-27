@@ -1,10 +1,10 @@
 <div>
-    <h1>Add Learning Space</h1>
+    <h1>Create Learning Space</h1>
 </div>
 <div>
-    <form action="learning-space/create" method="post">
+    <form method="post">
         {% csrf_token %}
-        {{ form }}
+        {{ form.as_ul }}
         <input type="submit", value="Submit">
     </form>
 </div>

@@ -2,7 +2,10 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from .models import LearningSpace
 from app_article.models import Article
-from forms import LearningSpaceForm
+from .forms import LearningSpaceForm
+from app_profile.models import Profile
+from django.forms.models import  model_to_dict
+
 
 def index_view(req):
     template = loader.get_template("app_learning_space/home_page.html")
@@ -28,11 +31,36 @@ def create_learning_space_view(req):
     if req.method == "POST":
         form = LearningSpaceForm(req.POST)
         if form.is_valid():
-            return HttpResponseRedirect("/")
+            profile = Profile.objects.filter(user__id=req.user.id)
+            learning_space_model = LearningSpace(**form.cleaned_data)
+            learning_space_model.save()
+            learning_space_model.colearners.set(profile)
+            return HttpResponseRedirect(f"/learning-space/{learning_space_model.id}")
     else:
         form = LearningSpaceForm()
 
-    template = loader.get_template("app_learning_space/create_learning_space.html")
+    template = loader.get_template("app_learning_space/learning_space_create.html")
+    context = {
+        "form": form
+    }
+    return HttpResponse(template.render(context, req))
+
+
+def update_learning_space_view(req, learning_space_id):
+    if req.method == "POST":
+        form = LearningSpaceForm(req.POST)
+        if form.is_valid():
+            profile = Profile.objects.filter(user__id=req.user.id)
+            learning_space_model = LearningSpace(**form.cleaned_data)
+            learning_space_model.save()
+            learning_space_model.colearners.set(profile)
+            return HttpResponseRedirect(f"/learning-space/{learning_space_model.id}")
+    else:
+        learning_space = LearningSpace.objects.get(id=learning_space_id)
+        learning_space_as_dict = model_to_dict(learning_space)
+        form = LearningSpaceForm(initial=learning_space_as_dict)
+
+    template = loader.get_template("app_learning_space/learning_space_update.html")
     context = {
         "form": form
     }
