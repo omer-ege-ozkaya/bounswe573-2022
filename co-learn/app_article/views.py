@@ -60,7 +60,8 @@ def update_article_view(req, article_id):
     return HttpResponse(template.render(context, req))
 
 
-# def delete_article_view(req, article_id):
-#     article = LearningSpace.objects.get(id=article_id)
-#     article.delete()
-#     return HttpResponseRedirect("/")
+def delete_article_view(req, article_id):
+    article = Article.objects.get(id=article_id)
+    learning_space_id = article.learning_space.id
+    article.delete()
+    return HttpResponseRedirect(f"/learning-space/{learning_space_id}")
