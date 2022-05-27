@@ -1,0 +1,10 @@
+<div>
+    <h1>Add Learning Space</h1>
+</div>
+<div>
+    <form action="learning-space/create" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit", value="Submit">
+    </form>
+</div>

@@ -1,8 +1,8 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from .models import LearningSpace
 from app_article.models import Article
-
+from forms import LearningSpaceForm
 
 def index_view(req):
     template = loader.get_template("app_learning_space/home_page.html")
@@ -20,5 +20,20 @@ def learning_space_view(req, learning_space_id):
     context = {
         "learning_space": learning_space,
         "articles": articles
+    }
+    return HttpResponse(template.render(context, req))
+
+
+def create_learning_space_view(req):
+    if req.method == "POST":
+        form = LearningSpaceForm(req.POST)
+        if form.is_valid():
+            return HttpResponseRedirect("/")
+    else:
+        form = LearningSpaceForm()
+
+    template = loader.get_template("app_learning_space/create_learning_space.html")
+    context = {
+        "form": form
     }
     return HttpResponse(template.render(context, req))
