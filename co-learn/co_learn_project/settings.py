@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'app_posts.apps.AppPostsConfig',
     'app_auth.apps.AppAuthConfig',
     'app_profile.apps.AppProfileConfig',
-    'app_learning_space.apps.AppLearningSpaceConfig'
+    'app_learning_space.apps.AppLearningSpaceConfig',
+    'app_article.apps.AppArticleConfig',
 ]
 
 MIDDLEWARE = [
