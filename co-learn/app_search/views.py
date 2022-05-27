@@ -24,6 +24,7 @@ def search_view(req):
         "articles": articles,
         "posts": posts,
         "profiles": profiles,
+        "q": search_query
     }
     template = loader.get_template("app_search/search_page.html")
     return HttpResponse(template.render(context, req))
