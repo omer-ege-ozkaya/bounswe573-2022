@@ -4,7 +4,7 @@ from .models import LearningSpace
 from app_article.models import Article
 from .forms import LearningSpaceForm
 from app_profile.models import Profile
-from django.forms.models import  model_to_dict
+from django.forms.models import model_to_dict
 
 
 def index_view(req):

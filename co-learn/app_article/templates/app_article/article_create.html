@@ -2,7 +2,7 @@
     <h1>Create Article</h1>
 </div>
 <div>
-    <form method="post">
+    <form action="/article/create/in/{{ learning_space_id }}" method="post">
         {% csrf_token %}
         {{ form.as_ul }}
         <input type="submit", value="Submit">
