@@ -1,4 +1,4 @@
 from django.contrib import admin
 from . import models
 
-admin.register(models.LearningSpace)
+admin.site.register(models.LearningSpace)
