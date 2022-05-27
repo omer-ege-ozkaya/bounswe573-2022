@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'app_profile',
     'app_learning_space',
     'app_article',
+    'app_search'
 ]
 
 MIDDLEWARE = [

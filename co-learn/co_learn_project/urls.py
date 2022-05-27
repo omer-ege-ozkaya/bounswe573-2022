@@ -24,4 +24,5 @@ urlpatterns = [
     path('', include('app_posts.urls')),
     path('', include('app_auth.urls')),
     path('', include('app_profile.urls')),
+    path('', include('app_search.urls')),
 ]
