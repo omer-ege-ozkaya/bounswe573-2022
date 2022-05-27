@@ -2,11 +2,16 @@
     <h1>Learning Space Home Page</h1>
 </div>
 <div>
+    Learning Spaces: <br>
     <table>
+        <tr>
+            <th>Thumbnail</th>
+            <th>Name</th>
+        </tr>
         {% for learning_space in learning_spaces %}
         <tr>
             <td>{{ learning_space.thumbnail }}</td>
-            <td>{{ learning_space.name }}</td>
+            <td><a href="learning-space/{{ learning_space.id }}">{{ learning_space.name }}</a></td>
         </tr>
         {% endfor %}
     </table>
