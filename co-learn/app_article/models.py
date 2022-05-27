@@ -9,3 +9,6 @@ class Article(models.Model):
     author = models.ForeignKey(Profile, on_delete=models.CASCADE)
     like_count = models.IntegerField()
     learning_space = models.ForeignKey(LearningSpace, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.title
