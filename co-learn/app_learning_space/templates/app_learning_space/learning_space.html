@@ -14,7 +14,7 @@
         {{ article }}
         <tr>
             <td>{{ article.like_count }}</td>
-            <td><a href="article/{{ article.id }}">{{ article.title }}</a></td>
+            <td><a href="/article/{{ article.id }}">{{ article.title }}</a></td>
             <td>{{ article.author.user.username }}</td>
             <td>{{ article.modified_at }}</td>
         </tr>
