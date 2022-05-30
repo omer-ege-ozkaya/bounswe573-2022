@@ -16,6 +16,11 @@
     <div><a class="button-link" href="/learning-space/update/{{ learning_space.id }}">Edit Learning Space!</a></div>
     <div><a class="button-link" href="/learning-space/delete/{{ learning_space.id }}">Delete Learning Space!</a></div>
     <div><a class="button-link" href="/article/create/in/{{ learning_space.id }}">Create Article!</a></div>
+    <div>
+        Colearners: {% for colearner in learning_space.colearners.all %}
+        <a href="/profile/{{ colearner.id }}">{{ colearner }}</a>
+        {% endfor %}
+    </div>
     <table class="simple-table">
         <tr>
             <th>Like Count</th>

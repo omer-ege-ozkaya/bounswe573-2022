@@ -11,7 +11,7 @@ def profile_view(req, profile_id=None):
     if profile_id is None:
         profile = Profile.objects.filter(user__id=req.user.id)[0]
     else:
-        profile = Profile.object.get(id=profile_id)
+        profile = Profile.objects.get(id=profile_id)
     context = {
         "profile": profile
     }
