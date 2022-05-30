@@ -1,8 +1,9 @@
-media/
+media/*
+!media/.gitkeep
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
-*.py[cod]
+*.py[cod]git
 *$py.class
 
 # C extensions
