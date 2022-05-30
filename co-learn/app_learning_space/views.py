@@ -29,7 +29,7 @@ def learning_space_view(req, learning_space_id):
 
 def create_learning_space_view(req):
     if req.method == "POST":
-        form = LearningSpaceForm(req.POST)
+        form = LearningSpaceForm(req.POST, req.FILES)
         if form.is_valid():
             profile = Profile.objects.filter(user__id=req.user.id)
             learning_space_model = form.save()

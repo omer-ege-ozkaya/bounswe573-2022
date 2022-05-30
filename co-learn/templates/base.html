@@ -3,7 +3,7 @@
 <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
 
 <header>
-    <a class="header" href="">
+    <a class="header" href="/">
         <div class="header">
             <div class="header" id="main">Colearn</div>
             <div class="header" id="subtext">Learn with peers like you!</div>
@@ -14,7 +14,7 @@
 <nav id="menu">
     <input type='checkbox' id='responsive-menu' onclick='updatemenu()'><label></label>
     <ul>
-        <li><a href="">Home</a></li>
+        <li><a href="/">Home</a></li>
         {% if user.is_authenticated %}
         <li><a class="dropdown-arrow" href="{% url 'profile_page_url' %}">{{ user.username }}</a>
             <ul class="sub-menus">

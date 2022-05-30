@@ -5,7 +5,7 @@
     <h1>Create Learning Space</h1>
 </div>
 <div>
-    <form method="post">
+    <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_ul }}
         <input type="submit" value="Submit">

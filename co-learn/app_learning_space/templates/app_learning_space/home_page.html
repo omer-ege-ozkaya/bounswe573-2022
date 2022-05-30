@@ -18,7 +18,7 @@
         </tr>
         {% for learning_space in learning_spaces %}
         <tr>
-            <td>{{ learning_space.thumbnail }}</td>
+            <td><img src="media/{{ learning_space.thumbnail }}" width="100"></td>
             <td><a href="learning-space/{{ learning_space.id }}">{{ learning_space.name }}</a></td>
         </tr>
         {% endfor %}
