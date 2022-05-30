@@ -71,7 +71,6 @@ body {
     background: purple;
 }
 
-
 table.simple-table {
     width: 100%;
     font-weight: bold;
@@ -116,8 +115,6 @@ a.button-link:hover {
     transition: 0.3s;
 }
 
-
-
 table.complex-table .img-col {
     width: 100px;
 }
@@ -157,4 +154,21 @@ table.complex-table > tbody > tr > td:nth-child(2){
 
 table.complex-table > tbody > tr > td:nth-child(3){
     width: 15%;
+}
+
+table.profile-table {
+    width: 100%;
+    font-weight: bold;
+}
+
+table.profile-table tr {
+    color: #5f035f;
+    border: 1px solid #dadae7;
+    margin: 20px 5px;
+    display: block;
+    box-shadow: 10px 10px 10px #bebed9;
+}
+
+table.profile-table .img-col {
+    width: 100px;
 }
