@@ -72,13 +72,16 @@ body {
 
 table {
     width: 100%;
+    font-weight: bold;
 }
 
 tr {
-    height: 100px;
+    color: #5f035f;
+    border: 1px solid #dadae7;
+    height: 110px;
     margin: 20px 5px;
     display: block;
-    box-shadow: 10px 10px 10px #bebed9;;
+    box-shadow: 10px 10px 10px #bebed9;
 }
 
 tr:hover {
@@ -92,4 +95,20 @@ tr:hover {
 
 img {
     width: 100px;
+}
+
+a.button-link {
+
+    color: purple;
+    text-decoration: none;
+    border: 1px solid purple;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+a.button-link:hover {
+
+    color: white;
+    background-color: purple;
+    transition: 0.3s;
 }

@@ -10,7 +10,7 @@
 </div>
 <div>
     <h2>Learning Spaces</h2>
-    <div><a href="/learning-space/create">Create Learning Space!</a></div>
+    <div><a class="button-link" href="/learning-space/create">Create Learning Space!</a></div>
     <table>
 <!--        <tr>-->
 <!--            <th class="img-col">Thumbnail</th>-->
@@ -19,7 +19,7 @@
         {% for learning_space in learning_spaces %}
         <tr onclick="window.location='/learning-space/{{ learning_space.id }}'">
             <td class="img-col"><img src="/media/{{ learning_space.thumbnail }}"></td>
-            <td><a href="/learning-space/{{ learning_space.id }}">{{ learning_space.name }}</a></td>
+            <td>{{ learning_space.name }}</td>
         </tr>
         {% endfor %}
     </table>
