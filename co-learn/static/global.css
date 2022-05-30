@@ -1,3 +1,7 @@
+body {
+    background-color: #e8f0f4;
+}
+
 .space {
     display: block;
     font-size: 26px;
@@ -68,10 +72,23 @@
 
 table {
     width: 100%;
-    border: 1px solid #bbb;
-    border-collapse: collapse;
 }
 
 tr {
-    border: 1px solid #bbb;
+    height: 100px;
+    margin: 20px 5px;
+    display: block;
+    box-shadow: 10px 10px 10px #bebed9;;
+}
+
+tr:hover {
+    box-shadow: 10px 10px 10px #a1a1b9;
+}
+
+.img-col {
+    width: 100px;
+}
+
+img {
+    width: 100px;
 }

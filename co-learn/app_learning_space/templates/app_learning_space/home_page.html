@@ -13,12 +13,12 @@
     <div><a href="/learning-space/create">Create Learning Space!</a></div>
     <table>
         <tr>
-            <th>Thumbnail</th>
+            <th class="img-col">Thumbnail</th>
             <th>Name</th>
         </tr>
         {% for learning_space in learning_spaces %}
         <tr>
-            <td><img src="/media/{{ learning_space.thumbnail }}" width="100"></td>
+            <td class="img-col"><img src="/media/{{ learning_space.thumbnail }}"></td>
             <td><a href="/learning-space/{{ learning_space.id }}">{{ learning_space.name }}</a></td>
         </tr>
         {% endfor %}
