@@ -64,3 +64,14 @@
 #navbar li.button:hover {
     background: green;
 }
+
+
+table {
+    width: 100%;
+    border: 1px solid #bbb;
+    border-collapse: collapse;
+}
+
+tr {
+    border: 1px solid #bbb;
+}
