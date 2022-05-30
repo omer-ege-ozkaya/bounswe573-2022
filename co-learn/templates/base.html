@@ -9,14 +9,12 @@
             <div class="header" id="subtext">Learn with peers like you!</div>
         </div>
     </a>
-
 </header>
 
 <nav id="menu">
     <input type='checkbox' id='responsive-menu' onclick='updatemenu()'><label></label>
     <ul>
         <li><a href="">Home</a></li>
-        <li><a href="">Posts</a></li>
         {% if user.is_authenticated %}
         <li><a class="dropdown-arrow" href="{% url 'profile_page_url' %}">{{ user.username }}</a>
             <ul class="sub-menus">
@@ -28,7 +26,17 @@
         <li><a href="{% url 'login' %}">Log In</a></li>
         <li><a href="{% url 'signup_page_url' %}">Sign Up</a></li>
         {% endif %}
+        <li>
+            <form action="/search" method="get">
+                <input type="search">
+                <input type="submit" value="Search">
+            </form>
+        </li>
     </ul>
 </nav>
 
+            <form action="/search" method="get">
+                <input type="search" name="q">
+                <input type="submit" value="Search">
+            </form>
 {% block content%} {% endblock content%}
