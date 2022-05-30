@@ -1,3 +1,6 @@
+{% extends "base.html" %}
+
+{% block content %}
 <div>
     <h1>Update Post</h1>
 </div>
@@ -10,3 +13,4 @@
         <input type="button" onclick="location.href = '/article/{{ article_id }}'" value="Cancel">
     </form>
 </div>
+{% endblock content %}

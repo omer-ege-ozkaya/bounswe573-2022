@@ -1,3 +1,6 @@
+{% extends "base.html" %}
+
+{% block content %}
 {% load static %}
 <script src="{% static 'app_article.js' %}"></script>
 
@@ -67,3 +70,4 @@
         {% endfor %}
     </table>
 </div>
+{% endblock content %}
