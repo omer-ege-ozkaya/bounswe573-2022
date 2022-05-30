@@ -70,12 +70,12 @@ body {
 }
 
 
-table {
+table.simple-table {
     width: 100%;
     font-weight: bold;
 }
 
-tr {
+table.simple-table tr {
     color: #5f035f;
     border: 1px solid #dadae7;
     height: 110px;
@@ -84,16 +84,16 @@ tr {
     box-shadow: 10px 10px 10px #bebed9;
 }
 
-tr:hover {
+table.simple-table tr:hover {
     box-shadow: 10px 10px 10px #a1a1b9;
     cursor: pointer;
 }
 
-.img-col {
+table.simple-table .img-col {
     width: 100px;
 }
 
-img {
+table.simple-table img {
     width: 100px;
 }
 
@@ -112,4 +112,43 @@ a.button-link:hover {
     color: white;
     background-color: purple;
     transition: 0.3s;
+}
+
+
+
+table.complex-table .img-col {
+    width: 100px;
+}
+
+table.complex-table img {
+    width: 100px;
+}
+
+table.complex-table {
+    border-collapse: collapse;
+}
+
+table.complex-table > tbody > tr {
+    border: 0px solid black;
+}
+
+table.complex-table > tbody > tr > td{
+    border: 1px solid black;
+}
+
+table.complex-table {
+    width: 100%;
+}
+
+table.complex-table > tbody > tr {
+    display: block;
+    margin-top: 10px;
+}
+
+table.complex-table > tbody > tr > td:nth-child(2){
+    width: 85%;
+}
+
+table.complex-table > tbody > tr > td:nth-child(3){
+    width: 15%;
 }
