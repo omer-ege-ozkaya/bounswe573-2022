@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<table class="profile-table">
+    <tr>
+        <td class="img-col"><img src="/media/{{ profile.profile_picture }}"></td>
+        <td>
+        <p>Username: {{ profile.user.username }}</p>
+        <p>First Name: {{ profile.user.first_name }}</p>
+        <p>Last Name: {{ profile.user.last_name }}</p>
+        <p>email:{{ profile.user.email }} </p>
+        </td>
+    </tr>
+</table>
+{% endblock content %}

@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+Results that contain "{{ q }}" are as following:
+<table>
+    <tr>
+        <th>Learning Spaces</th>
+        <th>Articles</th>
+        <th>Posts</th>
+        <th>Profiles</th>
+    </tr>
+    <tr>
+        <td>
+            {% for learning_space in learning_spaces %}
+                <table>
+                    <tr><td><a href="/learning-space/{{ learning_space.id }}">{{ learning_space.name }}</a></td></tr>
+                    <tr><td>{{ learning_space.description }}</td></tr>
+                </table>
+                <p>learning_space</p>
+            {% endfor %}
+        </td>
+        <td>
+            {% for article in articles %}
+                <table>
+                    <tr><td><a href="/article/{{ article.id }}">{{ article.title }}</a></td></tr>
+                    <tr><td>{{ article.body }}</td></tr>
+                </table>
+            {% endfor %}
+        </td>
+        <td>
+            {% for post in posts %}
+                <table>
+                    <tr><td><a href="/article/{{ post.article.id }}">{{ post.body }}</a></td></tr>
+                </table>
+            {% endfor %}
+        </td>
+        <td>
+            {% for profile in profiles %}
+                <table>
+                    <tr><td><a href="/profile/{{ profile.id }}">{{ profile.user.username }}</a></td></tr>
+                </table>
+            {% endfor %}
+        </td>
+    </tr>
+</table>
+{% endblock content %}
+
+

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div>
+    <h1>Create Learning Space</h1>
+</div>
+<div>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_ul }}
+        <input type="submit" value="Submit">
+        <input type="button" onclick="location.href = '/'" value="Cancel">
+    </form>
+</div>
+{% endblock content %}

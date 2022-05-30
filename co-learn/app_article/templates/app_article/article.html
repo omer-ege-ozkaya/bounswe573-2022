@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% load static %}
+<script src="{% static 'app_article.js' %}"></script>
+
+<div>
+    <h1>Learning Space Articles</h1>
+</div>
+<div>
+    <a href="/">Learning Spaces</a>
+    >
+    <a href="/learning-space/{{ article.learning_space.id }}">{{ article.learning_space.name }}</a>
+    >
+    <a href="/article/{{ article.id }}">{{ article.title }}</a>
+</div>
+<div>
+    <h2>Posts of {{ article.title }}</h2>
+    <div>
+        <button id="showHidePostFormButton" onclick="showHidePost()">Write Post!</button>
+        <div id="postForm" style="display: none;">
+            <form method="post">
+                {% csrf_token %}
+                {{ post_form.as_p }}
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+    <table class="complex-table">
+        <tr>
+            <td>
+                <table>
+                    <tr><td>Like count: {{ article.like_count }}</td></tr>
+                    <tr>
+                        <td class="img-col">
+                            <img src="/media/{{ article.author.profile_picture }}">
+                            {{ article.author.user.username }}
+                        </td>
+                    </tr>
+                    <tr><td>{{ article.modified_at }}</td></tr>
+                </table>
+            </td>
+            <td>
+                {{ article.body }}
+            </td>
+            <td>
+                <a class="button-link" href="/article/update/{{ article.id }}">Edit Article</a><br>
+                <a class="button-link" href="/article/delete/{{ article.id }}">Delete Article</a>
+            </td>
+        </tr>
+        {% for post in posts %}
+        <tr>
+            <td>
+                <table>
+                    <tr><td>Like count: {{ post.like_count }}</td></tr>
+                    <tr>
+                        <td class="img-col">
+                            <img src="/media/{{ article.author.profile_picture }}">
+                            {{ post.author.user.username }}
+                        </td>
+                    </tr>
+                    <tr><td>{{ post.modified_at }}</td></tr>
+                </table>
+            </td>
+            <td>
+                {{ post.body }}
+            </td>
+            <td>
+                <a class="button-link" href="/post/update/{{ post.id }}">Edit</a><br>
+                <a class="button-link" href="/post/delete/{{ post.id }}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock content %}

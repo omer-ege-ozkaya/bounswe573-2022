@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div>
+    <h1>Learning Space Home Page</h1>
+</div>
+<div>
+    <a href="/">Learning Spaces</a>
+</div>
+<div>
+    <h2>Learning Spaces</h2>
+    <div><a class="button-link" href="/learning-space/create">Create Learning Space!</a></div>
+    <table class="simple-table">
+        {% for learning_space in learning_spaces %}
+        <tr onclick="window.location='/learning-space/{{ learning_space.id }}'">
+            <td class="img-col"><img src="/media/{{ learning_space.thumbnail }}"></td>
+            <td>{{ learning_space.name }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock content %}

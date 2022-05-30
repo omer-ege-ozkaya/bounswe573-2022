@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div>
+    <h1>Update Post</h1>
+</div>
+<div>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_ul }}
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset Form">
+        <input type="button" onclick="location.href = '/article/{{ article_id }}'" value="Cancel">
+    </form>
+</div>
+{% endblock content %}

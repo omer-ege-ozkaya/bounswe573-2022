@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -37,10 +38,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'app_pages.apps.AppPagesConfig',
-    'app_posts.apps.AppPostsConfig',
-    'app_auth.apps.AppAuthConfig',
-    'app_profile.apps.AppProfileConfig'
+    # 'app_pages',
+    'app_posts',
+    'app_auth',
+    'app_profile',
+    'app_learning_space',
+    'app_article',
+    'app_search'
 ]
 
 MIDDLEWARE = [
@@ -131,3 +135,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
+
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+MEDIA_URL = '/media/'

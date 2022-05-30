@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div>
+    <h1>Learning Space Articles</h1>
+</div>
+<div>
+    <a href="/">Learning Spaces</a>
+    >
+    <a href="/learning-space/{{ learning_space.id }}">{{ learning_space.name }}</a>
+</div>
+<div>
+    <img src="/media/{{ learning_space.thumbnail }}" width="100">
+    <h2>Articles of {{ learning_space.name }}</h2>
+    <div>
+        <b>Colearners:</b> {% for colearner in learning_space.colearners.all %}
+        <a href="/profile/{{ colearner.id }}">{{ colearner }}</a>{% if not forloop.last %},&nbsp{% endif %}
+        {% endfor %}
+    </div>
+    <div><a class="button-link" href="/learning-space/update/{{ learning_space.id }}">Edit Learning Space!</a></div>
+    <div><a class="button-link" href="/learning-space/delete/{{ learning_space.id }}">Delete Learning Space!</a></div>
+    <div><a class="button-link" href="/article/create/in/{{ learning_space.id }}">Create Article!</a></div>
+    <table class="simple-table">
+        {% for article in articles %}
+        <tr onclick="window.location='/article/{{ article.id }}'">
+            <td class="info-column">
+                Like count: {{ article.like_count }}
+                <br>Author: {{ article.author.user.username }}
+                <br>{{ article.modified_at }}
+            </td>
+            <td class="title-column">{{ article.title }}</td>
+            <td class="body-column">{{ article.body | truncatechars:200 }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock content %}
