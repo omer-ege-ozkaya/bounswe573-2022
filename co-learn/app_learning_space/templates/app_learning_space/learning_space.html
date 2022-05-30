@@ -18,7 +18,7 @@
     <div><a class="button-link" href="/article/create/in/{{ learning_space.id }}">Create Article!</a></div>
     <div>
         Colearners: {% for colearner in learning_space.colearners.all %}
-        <a href="/profile/{{ colearner.id }}">{{ colearner }}</a>
+        <a href="/profile/{{ colearner.id }}">{{ colearner }}</a>{% if not forloop.last %},&nbsp{% endif %}
         {% endfor %}
     </div>
     <table class="simple-table">
