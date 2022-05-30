@@ -5,7 +5,6 @@
     <h1>Learning Space Articles</h1>
 </div>
 <div>
-    Navbar<br>
     <a href="/">Learning Spaces</a>
     >
     <a href="/learning-space/{{ learning_space.id }}">{{ learning_space.name }}</a>
@@ -29,10 +28,10 @@
             <th>Modified at</th>
         </tr>
         {% for article in articles %}
-        {{ article }}
         <tr>
             <td>{{ article.like_count }}</td>
             <td><a href="/article/{{ article.id }}">{{ article.title }}</a></td>
+            <td>{{ article.body | truncatechars:200 }}</td>
             <td>{{ article.author.user.username }}</td>
             <td>{{ article.modified_at }}</td>
         </tr>
