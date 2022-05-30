@@ -9,7 +9,7 @@ body {
 }
 
 .header {
-    background-color: darkOrange;
+    background-color: #65496c;
     border-radius: 10px;
     color: white;
     font-family: 'Sofia';
@@ -31,8 +31,9 @@ body {
 }
 
 #navbar ul {
-    background-color: #4d4d4d;
+    background-color: #65496c;
     padding: 0px;
+    border-radius: 10px;
 }
 
 #navbar li {
@@ -62,11 +63,12 @@ body {
 }
 
 #navbar li.button {
-    border-right:1px solid #bbb;
+    border-right:1px solid #e8f0f4;
+    border-left:1px solid #e8f0f4;
 }
 
 #navbar li.button:hover {
-    background: green;
+    background: purple;
 }
 
 
