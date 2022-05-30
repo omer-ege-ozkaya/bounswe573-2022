@@ -98,12 +98,13 @@ img {
 }
 
 a.button-link {
-
+    display: inline-block;
     color: purple;
     text-decoration: none;
     border: 1px solid purple;
     padding: 10px;
     border-radius: 4px;
+    margin: 4px;
 }
 
 a.button-link:hover {
