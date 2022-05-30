@@ -12,28 +12,24 @@
 <div>
     <img src="/media/{{ learning_space.thumbnail }}" width="100">
     <h2>Articles of {{ learning_space.name }}</h2>
-    <div><a class="button-link" href="/learning-space/update/{{ learning_space.id }}">Edit Learning Space!</a></div>
-    <div><a class="button-link" href="/learning-space/delete/{{ learning_space.id }}">Delete Learning Space!</a></div>
-    <div><a class="button-link" href="/article/create/in/{{ learning_space.id }}">Create Article!</a></div>
     <div>
-        Colearners: {% for colearner in learning_space.colearners.all %}
+        <b>Colearners:</b> {% for colearner in learning_space.colearners.all %}
         <a href="/profile/{{ colearner.id }}">{{ colearner }}</a>{% if not forloop.last %},&nbsp{% endif %}
         {% endfor %}
     </div>
+    <div><a class="button-link" href="/learning-space/update/{{ learning_space.id }}">Edit Learning Space!</a></div>
+    <div><a class="button-link" href="/learning-space/delete/{{ learning_space.id }}">Delete Learning Space!</a></div>
+    <div><a class="button-link" href="/article/create/in/{{ learning_space.id }}">Create Article!</a></div>
     <table class="simple-table">
-        <tr>
-            <th>Like Count</th>
-            <th>Title</th>
-            <th>Author</th>
-            <th>Modified at</th>
-        </tr>
         {% for article in articles %}
-        <tr>
-            <td>{{ article.like_count }}</td>
-            <td><a href="/article/{{ article.id }}">{{ article.title }}</a></td>
-            <td>{{ article.body | truncatechars:200 }}</td>
-            <td>{{ article.author.user.username }}</td>
-            <td>{{ article.modified_at }}</td>
+        <tr onclick="window.location='/article/{{ article.id }}'">
+            <td class="info-column">
+                Like count: {{ article.like_count }}
+                <br>Author: {{ article.author.user.username }}
+                <br>{{ article.modified_at }}
+            </td>
+            <td class="title-column">{{ article.title }}</td>
+            <td class="body-column">{{ article.body | truncatechars:200 }}</td>
         </tr>
         {% endfor %}
     </table>
